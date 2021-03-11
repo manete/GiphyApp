@@ -5,7 +5,7 @@
     </h3>
     <hr class="text-white" />
     <div class="list-group list-reset">
-        <a href="#" class="list-group-item list-group-item-action" *ngFor="let element of historial">{{element | titlecase}}</a>
+        <a href="#" class="list-group-item list-group-item-action" *ngFor="let element of historial" (onclick)="buscar(element)">{{element | titlecase}}</a>
     </div>
 
 </div>

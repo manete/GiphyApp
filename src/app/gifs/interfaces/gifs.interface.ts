@@ -1,8 +1,8 @@
 // To parse this data:
 //
-//   import { Convert, Welcome } from "./file";
+//   import { Convert, SearchGifResponse } from "./file";
 //
-//   const welcome = Convert.toWelcome(json);
+//   const SearchGifResponse = Convert.toSearchGifResponse(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
@@ -150,12 +150,12 @@ export interface Pagination {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toWelcome(json: string): Welcome {
-        return cast(JSON.parse(json), r("Welcome"));
+    public static toSearchGifResponse(json: string): SearchGifResponse {
+        return cast(JSON.parse(json), r("SearchGifResponse"));
     }
 
-    public static welcomeToJson(value: Welcome): string {
-        return JSON.stringify(uncast(value, r("Welcome")), null, 2);
+    public static SearchGifResponseToJson(value: SearchGifResponse): string {
+        return JSON.stringify(uncast(value, r("SearchGifResponse")), null, 2);
     }
 }
 
@@ -292,7 +292,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "Welcome": o([
+    "SearchGifResponse": o([
         { json: "data", js: "data", typ: a(r("Gif")) },
         { json: "pagination", js: "pagination", typ: r("Pagination") },
         { json: "meta", js: "meta", typ: r("Meta") },
